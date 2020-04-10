@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 import pl.haladyj.eurekaclientstudent.client.GalleryClient;
 import pl.haladyj.eurekaclientstudent.model.Galery;
 import pl.haladyj.eurekaclientstudent.model.Image;
@@ -27,17 +26,17 @@ public class GalleryController {
     GalleryClient client;
 
     @Autowired
-    Environment enviroment;
+    Environment environment;
 
     @GetMapping("/")
     public String home() {
-        return "Hello from Gallery Service running at port: " + enviroment.getProperty("local.server.port");
+        return "Hello from Gallery Service running at port: " + environment.getProperty("local.server.port");
     }
 
     @GetMapping("/admin")
     public String homeAdmin() {
         return "This is the admin area of Gallery service running at port: " +
-                enviroment.getProperty("local.server.port");
+                environment.getProperty("local.server.port");
     }
 
     @GetMapping("/{id}")
@@ -55,6 +54,5 @@ public class GalleryController {
     private Galery getGaleryFallback(Long galleryId, Throwable hystrixCommand) {
         return new Galery(galleryId);
     }
-
 
 }
