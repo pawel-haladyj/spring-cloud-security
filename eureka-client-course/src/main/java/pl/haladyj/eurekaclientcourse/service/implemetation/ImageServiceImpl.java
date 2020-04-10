@@ -5,6 +5,7 @@ import pl.haladyj.eurekaclientcourse.model.Image;
 import pl.haladyj.eurekaclientcourse.repository.ImageRepository;
 import pl.haladyj.eurekaclientcourse.service.ImageService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
