@@ -10,3 +10,15 @@ eureka:
     service-url:
       default-zone: http://localhost:8761/eureka/
 
+zuul:
+  routes:
+    gallery-service:
+      path: /gallery/**
+      service-id: eureka-client-student
+
+    auth-service:
+      path: /auth/**
+      service-id: auth-service
+      #strip-prefix: false
+      #sensitive-headers: Cookie,Set-Cookie
+

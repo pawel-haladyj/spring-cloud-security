@@ -7,13 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-zuul" />
-        <module name="eureka-common" />
         <module name="eureka-server" />
-        <module name="eureka-client-student" />
         <module name="eureka-client-course" />
+        <module name="eureka-auth" />
+        <module name="eureka-common" />
+        <module name="eureka-client-student" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="eureka-auth" target="1.8" />
       <module name="eureka-client-course" target="1.8" />
       <module name="eureka-client-student" target="1.8" />
       <module name="eureka-common" target="1.8" />
@@ -23,6 +25,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eureka-auth" options="-parameters" />
       <module name="eureka-client-course" options="-parameters" />
       <module name="eureka-client-student" options="-parameters" />
       <module name="eureka-common" options="-parameters" />

@@ -17,7 +17,7 @@ import pl.haladyj.eurekaclientstudent.model.Image;
 import java.util.List;
 
 @RestController
-@RequestMapping("/gal")
+@RequestMapping("/gallery")
 public class GalleryController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GalleryController.class);
