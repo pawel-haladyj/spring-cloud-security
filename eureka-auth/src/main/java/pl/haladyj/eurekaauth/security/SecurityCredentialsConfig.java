@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import pl.haladyj.eurekacommon.security.JwtConfig;
 
 import javax.servlet.http.HttpServletResponse;
@@ -25,9 +26,9 @@ public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter {
         this.encoder = encoder;
     }
 
-    @Override
+/*    @Override
     protected void configure(HttpSecurity http) throws Exception {
- /*       http.
+       *//*http.
                 csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -36,14 +37,24 @@ public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), config))
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, config.getUri()).permitAll()
-                .anyRequest().authenticated();*/
+                .anyRequest().authenticated();*//*
         http.authorizeRequests()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/user").hasAnyRole("USER","ADMIN")
                 .antMatchers("/").permitAll()
                 .and().formLogin();
 
+    }*/
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .authorizeRequests().antMatchers("/authenticate").permitAll()
+                .anyRequest().authenticated()
+                .and().sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
+
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {

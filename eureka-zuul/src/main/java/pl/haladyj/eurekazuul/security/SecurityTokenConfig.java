@@ -19,9 +19,9 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtConfig jwtConfig;
 
-    @Override
+   /* @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*http
+        *//*http
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -31,14 +31,14 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll()
                 .antMatchers("/gallery" + "/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated();*/
+                .anyRequest().authenticated();*//*
 
         http.authorizeRequests()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/user").hasAnyRole("USER","ADMIN")
                 .antMatchers("/").permitAll()
                 .and().formLogin();
-    }
+    }*/
 
     @Bean
     public JwtConfig jwtConfig() {
