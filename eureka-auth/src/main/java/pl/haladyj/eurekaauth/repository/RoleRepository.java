@@ -1,4 +1,4 @@
 package pl.haladyj.eurekaauth.repository;
 
-public interface UserRepository {
+public class RoleRepository {
 }

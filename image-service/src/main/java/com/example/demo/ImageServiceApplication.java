@@ -1,13 +1,13 @@
-package pl.haladyj.eurekazuul;
+package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EurekaZuulApplication {
+public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EurekaZuulApplication.class, args);
+		SpringApplication.run(DemoApplication.class, args);
 	}
 
 }
